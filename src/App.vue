@@ -5,7 +5,8 @@ const query = ref('')
 const featured = ref([
   { id: 1, title: 'Le Petit Prince', author: 'A. de Saint-Exupéry',
     available: true },
-  { id: 2, title: 'Germinal', author: 'É. Zola', available: false },
+  { id: 2, title: 'Harry Potter à l’école des sorciers', author: 'J. K. Rowling', available: false },
+  { id: 3, title: 'Matilda', author: 'Roald Dahl', available: false }
 ])
 </script>
  
@@ -19,6 +20,10 @@ const featured = ref([
       {{ book.title }} — {{ book.author }}
       <strong v-if="book.available">Disponible</strong>
       <em v-else>Emprunté</em>
+      <button type="button" @click="book.available = !book.available">
+        Changer le statut
+      </button>
+
     </li>
   </ul>
 </template>
