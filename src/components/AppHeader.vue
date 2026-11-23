@@ -18,4 +18,10 @@
 .app-header a { color: inherit; text-decoration: none; }
 .app-header__nav { display: flex; gap: var(--space-4);
   list-style: none; margin: 0; padding: 0; }
+
+.app-header__nav a.router-link-active {
+  font-weight: 700;
+  border-bottom: 2px solid currentColor;
+}
 </style>
+
