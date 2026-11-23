@@ -11,7 +11,11 @@ const emit = defineEmits(['toggle-favorite'])
     <img class="book-card__cover" :src="book.cover" width="200" height="300"
          :alt="'Couverture de ' + book.title" loading="lazy" />
     <div class="book-card__body">
-      <h3 class="book-card__title">{{ book.title }}</h3>
+      <h3 class="book-card__title">
+  <RouterLink :to="{ name: 'book', params: { id: book.id } }">
+    {{ book.title }}
+  </RouterLink>
+</h3>>
       <p class="book-card__author">{{ book.author }}</p>
       <p class="book-card__status"
          :class="{ 'book-card__status--off': !book.available }">
@@ -28,6 +32,15 @@ const emit = defineEmits(['toggle-favorite'])
 </template>
 
 <style scoped>
+.book-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+.book-card__title a:hover,
+.book-card__title a:focus-visible {
+  text-decoration: underline;
+}
+
 .book-card {
   display: flex;
   flex-direction: column;
